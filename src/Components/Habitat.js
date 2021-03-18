@@ -7,7 +7,7 @@ export const Habitat = (props) => {
     const deleteAnimal = (animalId) => {  //delete animal function
         const updatedHabitat = {
             ...habitat,
-            animals: habitat.habitat.animals.filter((x) => x._id !== animalId) 
+            animals: habitat.animals.filter((x) => x._id !== animalId) 
         };
         updateHabitat(updatedHabitat);
     }
@@ -16,12 +16,12 @@ export const Habitat = (props) => {
     console.log("Here below addNewAnimal") //works
     console.log(habitat.animals)//undefined
     console.log(habitat)
-    console.log("habitat.animals[0] below")
+    
    
-    console.log(habitat.habitat.animals)
+    console.log(habitat.animals)
     const animals = () => (
         <ul>
-            {habitat.habitat.animals.map((animal, index) => (
+            {habitat.animals.map((animal, index) => (
             //console.logs in here cause errors    
                 <li key={index}>
                     <label> {`${animal.name} Number: ${animal.number}`}</label>
@@ -34,17 +34,19 @@ export const Habitat = (props) => {
 
 
 console.log(animals.name)//animal
-console.log(habitat.name)//undefined
-console.log("habitat.animals"+ habitat.animals) //still undefined
-
+console.log(habitat.name + "habitat.name")//undefined
+console.log("habitat.animals"+ habitat.animals) //prints only the string
+console.log("habitat.habitat.name" + habitat.habitat.name)//undefined
+console.log(habitat)
+console.log(habitat.habitat)
     return ( //displays habitat and animals
         <div>
-            {/* <h1>{habitat.name}</h1> */}
-            {/* console.log("Here in return of habitat.js")//nothing */}
+            <h1>{habitat.habitat}</h1> 
             { 
                 animals({ animals, habitatId: habitat._id, deleteAnimal})
             }
-            <NewAnimalForm addNewAnimal={addNewAnimal}/>
+            <NewAnimalForm addNewAnimal={addNewAnimal}/>  
+            <hr/>
         </div>
     );
 

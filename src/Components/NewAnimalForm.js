@@ -4,7 +4,7 @@ export const NewAnimalForm = (props) => {
     const [name, setName] = useState ('');
     //const [name, setName] = useState([]);
     //const [number, setNumber] = useState(''); //was undefined but gave error
-    const [number, setNumber] = useState(undefined)
+    const [number, setNumber] = useState('')
 
     const handleNumberInput = (e) => {
         const int = parseInt(e.target.value, 10);
@@ -22,7 +22,7 @@ export const NewAnimalForm = (props) => {
         }
     };
 
-    return (
+    return ( //form to add new animal
         <div>
             <h4>Add a new animal</h4>
             <form onSubmit={onSubmit}>

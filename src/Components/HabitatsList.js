@@ -11,17 +11,19 @@ export class HabitatsList extends React.Component {
         this.fetchHabitats();
     };
 
+    //gets updated info
     fetchHabitats = async () => {
         const habitats = await habitatsApi.get();
         this.setState({ habitats });
     };
 
+    //updates info in api
     updateHabitat = async (updatedHabitat) => {
         await habitatsApi.put(updatedHabitat);
         this.fetchHabitats();
     };
 
-    render() {
+    render() { //displays 
         return (
             <div className="habitat-list">
                 {this.state.habitats.map((habitat) => (

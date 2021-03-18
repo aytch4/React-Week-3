@@ -22,7 +22,13 @@ class HabitatsApi { //gets data from API
                 headers: {
                     'Content-Type': "application/JSON"
                 },
-                body: JSON.stringify(habitat)
+                body: //JSON.stringify(habitat)
+
+                //I emptied the crudcrud api by using the old crud app that we started it with.  
+                //Then tried this change we had made in that app and it fixed the problem I was having
+                    JSON.stringify({
+                        "habitat" : habitat.habitat,
+                        "animals" : habitat.animals}),
             });
             return await resp.json();
         } catch(e) {
@@ -31,4 +37,4 @@ class HabitatsApi { //gets data from API
     }
 }
 
-export const habitatsApi = new HabitatsApi()
+export const habitatsApi = new HabitatsApi();
